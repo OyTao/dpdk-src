@@ -51,6 +51,10 @@ enum rte_intr_handle_type {
 };
 
 /** Handle for interrupts. */
+/*
+ * OyTao: interrupt handler. 
+ * @ fd: 中断对应的文件描述
+ */
 struct rte_intr_handle {
 	int fd;                          /**< file descriptor */
 	int uio_cfg_fd;                  /**< UIO config file descriptor */

@@ -98,7 +98,14 @@ union rte_intr_read_buffer {
 	char charbuf[16];                /* for others */
 };
 
+/*
+ * OyTao: 某一个中断源对应的callback list
+ */ 
 TAILQ_HEAD(rte_intr_cb_list, rte_intr_callback);
+
+/* 
+ * OyTao: 中断源链表
+ */
 TAILQ_HEAD(rte_intr_source_list, rte_intr_source);
 
 struct rte_intr_callback {
@@ -107,6 +114,10 @@ struct rte_intr_callback {
 	void *cb_arg;                /**< parameter for callback */
 };
 
+/*
+ * OyTao: 中断源
+ * @ callbacks: 一个中断源可能有多个user callback.
+ */
 struct rte_intr_source {
 	TAILQ_ENTRY(rte_intr_source) next;
 	struct rte_intr_handle intr_handle; /**< interrupt handle */
